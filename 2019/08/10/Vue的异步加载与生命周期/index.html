@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.0.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
@@ -97,16 +97,17 @@
 
 
   <meta name="description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue的异步加载与生命周期">
-<meta property="og:url" content="http://yoursite.com/2019/08/10/Vue的异步加载与生命周期/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.tenlp.cn/2019/08/10/Vue的异步加载与生命周期/index.html">
+<meta property="og:site_name" content="Tenlp">
 <meta property="og:description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/10/F1fKaiWOuY3oM7E.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/10/aokMwIJtXGRe8QT.png">
-<meta property="og:updated_time" content="2019-08-10T10:28:02.159Z">
+<meta property="og:updated_time" content="2019-08-10T14:43:06.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue的异步加载与生命周期">
 <meta name="twitter:description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
@@ -117,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/10/Vue的异步加载与生命周期/">
+  <link rel="canonical" href="https://www.tenlp.cn/2019/08/10/Vue的异步加载与生命周期/">
 
 
 
@@ -127,7 +128,7 @@
   };
 </script>
 
-  <title>Vue的异步加载与生命周期 | Hexo</title>
+  <title>Vue的异步加载与生命周期 | Tenlp</title>
   
 
 
@@ -186,10 +187,14 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Tenlp</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <p class="site-subtitle">技术小栈</p>
+      
     
     
   </div>
@@ -224,6 +229,40 @@
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -292,16 +331,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/Vue的异步加载与生命周期/">
+    <link itemprop="mainEntityOfPage" href="https://www.tenlp.cn/2019/08/10/Vue的异步加载与生命周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="分享个人技术收获">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Tenlp">
     </span>
 
     
@@ -335,7 +374,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 18:24:39 / 修改时间：18:28:02" itemprop="dateCreated datePublished" datetime="2019-08-10T18:24:39+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 18:24:39 / 修改时间：22:43:06" itemprop="dateCreated datePublished" datetime="2019-08-10T18:24:39+08:00">2019-08-10</time>
             
 
             
@@ -345,6 +384,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -434,6 +491,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
 
       
       
@@ -493,8 +556,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <p class="site-author-name" itemprop="name">梁沛</p>
+              <div class="site-description motion-element" itemprop="description">分享个人技术收获</div>
           </div>
 
           
@@ -511,7 +574,41 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -520,6 +617,32 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AppleTenlp" title="GitHub &rarr; https://github.com/AppleTenlp" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/tenlp@foxmail.com" title="E-Mail &rarr; tenlp@foxmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
           
 
           
@@ -571,7 +694,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">梁沛</span>
 
   
 
@@ -587,7 +710,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.1</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
 
 
 
@@ -676,6 +799,7 @@
 
 
   <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
 
 
 
