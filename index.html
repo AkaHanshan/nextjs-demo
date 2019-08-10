@@ -330,7 +330,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 16:29:24 / 修改时间：16:53:38" itemprop="dateCreated datePublished" datetime="2019-08-10T16:29:24+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 16:29:24 / 修改时间：17:11:11" itemprop="dateCreated datePublished" datetime="2019-08-10T16:29:24+08:00">2019-08-10</time>
             
 
             
@@ -371,11 +371,10 @@
       
         
           
-            <p>#Vue的异步加载与生命周期</p>
-<p>最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下：</p>
+            <h1 id="Vue的异步加载与生命周期"><a href="#Vue的异步加载与生命周期" class="headerlink" title="Vue的异步加载与生命周期"></a>Vue的异步加载与生命周期</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defect = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#defect'</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            defectList: []</span><br><span class="line">        &#125;,</span><br><span class="line">       created() &#123;</span><br><span class="line">            axios.get(<span class="string">'$&#123;ctx&#125;/def/defMessage/listJson'</span>).then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.defectList = response.data))</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>这里先来了解一下Vue实例的生命周期，官方文档是这么说的：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">链接</a></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这里先来了解一下Vue实例的生命周期，官方文档是这么说的：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">链接</a></p>
 <blockquote>
 <p><img src="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png" alt="vuelife.png"></p>
 </blockquote>
@@ -410,7 +409,7 @@
 
 <p>可以看见这时输出了从后台加载来的JSON数组<br><img src="https://i.loli.net/2019/08/10/aokMwIJtXGRe8QT.png" alt="image.png"></p>
 <p><a name="TwjZO"></a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果在Vue中通过异步加载获取数据时，数据会在实例挂载到DOM之后才加载上，接着对这个节点进行更新，因此在mouted已经之前的钩子中无法获取异步加载的数据</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果在Vue中通过异步加载获取数据时，数据会在实例挂载到DOM之后才加载上，接着对这个节点进行更新，因此在mouted已经之前的钩子中无法获取异步加载的数据</p>
 
           
         
