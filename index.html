@@ -330,7 +330,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 16:29:24 / 修改时间：14:21:18" itemprop="dateCreated datePublished" datetime="2019-08-10T16:29:24+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 16:29:24 / 修改时间：16:45:41" itemprop="dateCreated datePublished" datetime="2019-08-10T16:29:24+08:00">2019-08-10</time>
             
 
             
@@ -376,9 +376,9 @@
 
 <p>这里先来了解一下Vue实例的生命周期，官方文档是这么说的：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">链接</a></p>
 <blockquote>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565415174503-543ab92f-f825-4d90-8daf-3b734d31d042.png#align=left&display=inline&height=3039&originHeight=3039&originWidth=1200&size=0&status=done&width=1200" alt></p>
+<p><img src="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png" alt="vuelife.png"></p>
 </blockquote>
-<p>所以这里应该是在Vue实例创建的时候就通过axios异步加载JSON赋值给data中的defectList数组，然而为什么在mouted，也就是Vue实例挂载到DOM上时，输出defectList的时候，输出的是：<br><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565415677174-6ab5802f-36b0-4bef-9ffa-f724c02e334b.png#align=left&display=inline&height=66&name=image.png&originHeight=82&originWidth=1201&size=10608&status=done&width=960.8" alt="image.png"><br>也就是说，当挂载到DOM上的时候，我们的defectList数组还是空值，这又是为什么呢？再回顾一遍异步加载的知识，<a href="https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff" target="_blank" rel="noopener">什么是异步加载？</a><br>简要来说就是:</p>
+<p>所以这里应该是在Vue实例创建的时候就通过axios异步加载JSON赋值给data中的defectList数组，然而为什么在mouted，也就是Vue实例挂载到DOM上时，输出defectList的时候，输出的是：<br><img src="https://i.loli.net/2019/08/10/F1fKaiWOuY3oM7E.png" alt="image.png"><br>也就是说，当挂载到DOM上的时候，我们的defectList数组还是空值，这又是为什么呢？再回顾一遍异步加载的知识，<a href="https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff" target="_blank" rel="noopener">什么是异步加载？</a><br>简要来说就是:</p>
 <blockquote>
 <p><strong>Async</strong> is short for “<strong>asynchronous</strong>”. It’s easier to understand <strong>async</strong> if you first understand what “<strong>synchronous</strong>”, the opposite, means. … <strong>Asynchronous</strong> code takes statements outside of the main program flow, allowing the code after the<strong>asynchronous</strong> call to be executed immediately without waiting.</p>
 </blockquote>
@@ -407,7 +407,7 @@
 <p><br>将代码加上updated钩子，调用console.log(defectList)查看数组内容:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defect = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#defect'</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            defectList: []</span><br><span class="line">        &#125;,</span><br><span class="line">        created() &#123;</span><br><span class="line">            axios.get(<span class="string">'$&#123;ctx&#125;/def/defMessage/listJson'</span>).then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.defectList = response.data))</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;,</span><br><span class="line">        updated()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>可以看见这时输出了从后台加载来的JSON数组<br><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565417754582-2eea0591-8e2d-419b-99c5-67b26f1fa52b.png#align=left&display=inline&height=166&name=image.png&originHeight=208&originWidth=1077&size=26929&status=done&width=861.6" alt="image.png"></p>
+<p>可以看见这时输出了从后台加载来的JSON数组<br><img src="https://i.loli.net/2019/08/10/aokMwIJtXGRe8QT.png" alt="image.png"></p>
 <p><a name="TwjZO"></a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果在Vue中通过异步加载获取数据时，数据会在实例挂载到DOM之后才加载上，接着对这个节点进行更新，因此在mouted已经之前的钩子中无法获取异步加载的数据</p>
 
