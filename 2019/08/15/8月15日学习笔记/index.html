@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="edWcOjPaWAO6bhFZc9lxEoZEsqmPa1Tq32pObnya6Pc">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="8月15日学习笔记 JS中this在各个环境下的指向 绑定函数 绑定函数是与对象连接的函数。通常使用.bind() 方法从原始函数创建。原始函数和绑定函数共享相同的代码和作用域，但执行时上下文不同。  方法foo.bind(thisArg[,arg1[,arg2[,...]]]) 接受第一个参数thisArg作为绑定函数执行其上下文，并且它接受一组可选的参数arg1,arg2,... 作为被调用函">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中this的各个环境下指向(二)">
+<meta property="og:url" content="https://tenlp.cn/2019/08/15/8月15日学习笔记/index.html">
+<meta property="og:site_name" content="Tenlp">
+<meta property="og:description" content="8月15日学习笔记 JS中this在各个环境下的指向 绑定函数 绑定函数是与对象连接的函数。通常使用.bind() 方法从原始函数创建。原始函数和绑定函数共享相同的代码和作用域，但执行时上下文不同。  方法foo.bind(thisArg[,arg1[,arg2[,...]]]) 接受第一个参数thisArg作为绑定函数执行其上下文，并且它接受一组可选的参数arg1,arg2,... 作为被调用函">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-15T12:14:15.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS中this的各个环境下指向(二)">
+<meta name="twitter:description" content="8月15日学习笔记 JS中this在各个环境下的指向 绑定函数 绑定函数是与对象连接的函数。通常使用.bind() 方法从原始函数创建。原始函数和绑定函数共享相同的代码和作用域，但执行时上下文不同。  方法foo.bind(thisArg[,arg1[,arg2[,...]]]) 接受第一个参数thisArg作为绑定函数执行其上下文，并且它接受一组可选的参数arg1,arg2,... 作为被调用函">
+
+
+
+
+
+
+  <link rel="canonical" href="https://tenlp.cn/2019/08/15/8月15日学习笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JS中this的各个环境下指向(二) | Tenlp</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tenlp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">技术小栈</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/15/8月15日学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="分享个人技术收获">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tenlp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JS中this的各个环境下指向(二)
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 20:14:39 / 修改时间：20:14:15" itemprop="dateCreated datePublished" datetime="2019-08-15T20:14:39+08:00">2019-08-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="8月15日学习笔记"><a href="#8月15日学习笔记" class="headerlink" title="8月15日学习笔记"></a>8月15日学习笔记</h1><p><a name="fgG7U"></a></p>
+<h2 id="JS中this在各个环境下的指向"><a href="#JS中this在各个环境下的指向" class="headerlink" title="JS中this在各个环境下的指向"></a><a href="https://juejin.im/post/5d51feaef265da039005219e?utm_source=gold_browser_extension" target="_blank" rel="noopener">JS中this在各个环境下的指向</a></h2><p><a name="OPais"></a></p>
+<h3 id="绑定函数"><a href="#绑定函数" class="headerlink" title="绑定函数"></a>绑定函数</h3><blockquote>
+<p>绑定函数是与对象连接的函数。通常使用<code>.bind()</code> 方法从原始函数创建。<br>原始函数和绑定函数共享相同的代码和作用域，但执行时上下文不同。</p>
+</blockquote>
+<p>方法<code>foo.bind(thisArg[,arg1[,arg2[,...]]])</code> 接受第一个参数thisArg作为绑定函数执行其上下文，并且它接受一组可选的参数<code>arg1,arg2,...</code> 作为被调用函数的参数。它返回了一个绑定<code>thisArg</code> 的新函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span> *name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> double=foo.bind(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(double(<span class="number">3</span>));<span class="comment">//=&gt;6</span></span><br><span class="line"><span class="built_in">console</span>.log(double(<span class="number">10</span>));<span class="comment">//=&gt;20</span></span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中<code>bind(2)</code> 返回了一个新的函数对象<code>double</code> ,<code>double</code> 绑定了数字<code>2</code> 。<code>foo</code> 和<code>double</code> 具有相同的代码和作用域。<br>与<code>.apply()</code> 和<code>.call()</code> 方法相反，它不会立即调用该函数，<code>.call()</code> 方法只返回一个新函数，在之后被调用，<code>this</code> 已经被提前设置好了。<br><a name="tM8oH"></a></p>
+<h3 id="绑定函数中的this"><a href="#绑定函数中的this" class="headerlink" title="绑定函数中的this"></a>绑定函数中的this</h3><blockquote>
+<p>在调用绑定函数时，<code>this</code> 是<code>.bind()</code>的第一个参数</p>
+</blockquote>
+<p><code>.bind()</code> 的作是创建一个新函数，调用该函数时，将上下文作为传递给<code>.bind()</code> 的第一个参数。这种方法可以创建一个定义了<code>this</code> 值的函数。</p>
+<p>在绑定函数设置<code>this</code> :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nums=&#123;</span><br><span class="line">  array:[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],</span><br><span class="line">  getNums : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.array;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> bindGetNums=nums.getNums.bind(nums);</span><br><span class="line"><span class="built_in">console</span>.log(bindGetNums());<span class="comment">//=&gt;array:[3,4,5]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>nums.getNums.bind(nums)</code> 返回绑定<code>nums</code> 对象的<code>bindGetNums</code> 函数。<br><code>bindGetNums()</code> 调用时的this是nums对象，能够返回正确的数组对象。</p>
+<p>而如果将<code>nums.getNums</code> 提取到变量而不绑定。则在之后的函数调用中的this是window而不是nums对象。在这个情况下，不会正确返回数组<br><a name="TpC79"></a></p>
+<h3 id="紧密的上下文绑定"><a href="#紧密的上下文绑定" class="headerlink" title="紧密的上下文绑定"></a>紧密的上下文绑定</h3><blockquote>
+<p><code>.bind()</code>创建一个永久的上下文链接，并始终保持它。一个绑定函数不能通过<code>.call()</code> 或者<code>.apply()</code> 来改变其上下文，甚至再次绑定也无用。只有绑定函数的构造函数调用才能更改已经绑定的上下文，但是不推荐这样使用(构造函数必须使用常规的非绑定函数)</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getThis</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> one=getThis.bind(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(one());</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(one.call(<span class="number">2</span>)); <span class="comment">//=&gt;1</span></span><br><span class="line"><span class="built_in">console</span>.log(one.apply(<span class="number">2</span>));<span class="comment">//=&gt;1</span></span><br><span class="line"><span class="built_in">console</span>.log(one.bind(<span class="number">2</span>)());<span class="comment">//=&gt;1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> one());<span class="comment">//=&gt;getThis &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>只有<code>new one()</code> 改变了绑定函数的上下文，其他方式的调用中<code>this</code> 总等于1<br><a name="t3pen"></a></p>
+<p>###<br><a name="9d9Au"></a></p>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><blockquote>
+<p>箭头函数用于以更短的形式声明函数，并在词法上绑定上下文。</p>
+</blockquote>
+<p>它可以这样使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hello=<span class="function">(<span class="params">name</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello'</span>+name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hello(<span class="string">'xiaomin'</span>)); <span class="comment">//=&gt;helloxiaomin</span></span><br><span class="line"><span class="keyword">const</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>].filter(<span class="function"><span class="params">item</span>=&gt;</span>item%<span class="number">2</span>===<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//=&gt;[2,6]</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数没有<code>function</code> 关键字。当箭头函数只有一条语句时，可以省略<code>return</code> 关键字。<br>箭头函数是<code>匿名的</code> ,这意味着<code>name</code> 属性是一个空字符串<code>&#39;&#39;</code> 。这样它就没有词法上的函数名，同时，跟常规函数相反，它也不提供<code>arguments</code> 对象。但是这在ES6中通过<code>rest parameters</code> 修复了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum=<span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">arguments</span>); <span class="comment">//=&gt;'Object'</span></span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">result,item</span>)=&gt;</span>result+item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.name); <span class="comment">//=&gt;sum</span></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>));<span class="comment">//=&gt;16</span></span><br></pre></td></tr></table></figure>
+
+<p><a name="0wTlK"></a></p>
+<h3 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h3><blockquote>
+<p>this定义箭头函数的封闭上下文。</p>
+</blockquote>
+<p>箭头函数不会创建自己的执行上下文，而是从定义它的外部函数中获取<code>this</code> 。也就是箭头函数这种词汇上绑定<code>this</code> 。<br>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x,y)&#123;</span><br><span class="line">        <span class="keyword">this</span>.x=x;</span><br><span class="line">        <span class="keyword">this</span>.y=y;</span><br><span class="line">    &#125;</span><br><span class="line">    log()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span> === myPoint); <span class="comment">//=&gt;true</span></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>===myPoint); <span class="comment">//=&gt;true</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.x+<span class="string">':'</span>+<span class="keyword">this</span>.y); <span class="comment">//=&gt;'95:165'</span></span><br><span class="line">        &#125;,<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> myPoint=<span class="keyword">new</span> Point(<span class="number">95</span>,<span class="number">165</span>);</span><br><span class="line">myPoint.log();</span><br></pre></td></tr></table></figure>
+
+<p><code>setTimeOut</code> 使用与<code>log()</code> 方法相同的上下文调用箭头函数。正如所见，箭头函数从定义它的函数继承上下文。</p>
+<p>如果在这个例子中尝试使用常规函数，它创建自己的上下文(<code>window</code>或严格模式下的<code>undefined</code> )。因此，要使用相同的代码正确的使用函数表达式，需要手动绑定上下文：<code>setTimeOut(function(){...}.bind(this)</code> 。这很冗长，使用箭头函数是一种更简洁更短的解决方案。</p>
+<p>如果箭头函数在其他函数之外定义，那么它的上下文就是全局变量（<code>window</code> 或者严格模式下的<code>undefined</code> ）</p>
+<blockquote>
+<p>箭头函数一劳永逸的与词汇上下文绑定。即使修改上下文，<code>this</code> 也不能被改变：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nums =[<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">get</span>=()=&gt;&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span> === nums); <span class="comment">//=&gt;true</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===nums);<span class="comment">//=&gt;true</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">get</span>());//=&gt;[1,2]</span><br><span class="line">    <span class="keyword">get</span>.call([0]);//=&gt;[1,2]</span><br><span class="line">    <span class="keyword">get</span>.apply([0]);//=&gt;[1,2]</span><br><span class="line">    //bind</span><br><span class="line">    <span class="keyword">get</span>.bind([0]);//=&gt;[1,2]</span><br><span class="line">&#125;).call(nums);</span><br></pre></td></tr></table></figure>
+
+<p>无论如何调用箭头函数<code>get</code> ,它总是保留词汇上下文<code>nums</code> 。用其他上下文的隐式调用（通过<code>get.call([0])</code> 或<code>get.apply([0])</code> 或者通过重新绑定都不会起作用</p>
+<p><a name="Gk1Xv"></a></p>
+<h3 id="陷阱：用箭头函数定义方法"><a href="#陷阱：用箭头函数定义方法" class="headerlink" title="陷阱：用箭头函数定义方法"></a>陷阱：用箭头函数定义方法</h3><blockquote>
+<p>你可能希望使用箭头函数来声明一个对象上的方法。箭头函数的定义相比于函数表达式短得多:(param)=&gt;{…} instead of function(param){…}</p>
+</blockquote>
+<p>例如，用箭头函数在Period类上定义了<code>format()</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Period</span>(<span class="params">hours,minutes</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.hours=hours;</span><br><span class="line">    <span class="keyword">this</span>.minutes=minutes;</span><br><span class="line">&#125;</span><br><span class="line">Period.prototype.format=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>); <span class="comment">//=&gt;true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.hours+<span class="string">'hours and '</span> +<span class="keyword">this</span>.minutes+<span class="string">'minutes'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> WalkPeriod =<span class="keyword">new</span> Period(<span class="number">2</span>,<span class="number">30</span>);</span><br><span class="line">WalkPeriod.format(); <span class="comment">//=&gt;"undefinedhours and undefinedminutes"</span></span><br></pre></td></tr></table></figure>
+
+<p>由于<code>format()</code>是一个箭头函数，并且在全局上下文中定义，因此<code>this</code>指向<code>window</code>对象。<br>即使<code>format()</code> 作为方法在一个对象上被调用，<code>window</code> 仍然是这次调用的上下文，之所以这样是因为箭头函数有静态的上下文，不会随着调用方式的改变而改变。<br>函数表达式解决了这个问题，因为常规函数能够通过实际调用改变其上下文。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Period</span>(<span class="params">hours,minutes</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.hours=hours;</span><br><span class="line">    <span class="keyword">this</span>.minutes=minutes;</span><br><span class="line">&#125;</span><br><span class="line">Period.prototype.format=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>); <span class="comment">//=&gt;false</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.hours+<span class="string">'hours and '</span> +<span class="keyword">this</span>.minutes+<span class="string">'minutes'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> WalkPeriod =<span class="keyword">new</span> Period(<span class="number">2</span>,<span class="number">30</span>);</span><br><span class="line">WalkPeriod.format();<span class="comment">//=&gt;"2hours and 30minutes"</span></span><br></pre></td></tr></table></figure>
+
+<p><code>WalkPeriod.format()</code> 是一个对象上的方法调用，它的上下文是WalkPeriod对象。这个方法返回了正确的结果</p>
+<p><a name="eU6U7"></a></p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>函数调用对<code>this</code> 影响最大，从现在开始不要问自己：</p>
+<blockquote>
+<p>this从何而来</p>
+</blockquote>
+<p>而是要知道：</p>
+<blockquote>
+<p>函数是如何被调用的？</p>
+</blockquote>
+<p>对于箭头函数：</p>
+<blockquote>
+<p>在这个箭头函数被定义的地方，this是什么？</p>
+</blockquote>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fqq449245884%2Fxiaozhi" target="_blank" rel="noopener">原文地址</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/14/8月14日学习笔记/" rel="next" title="JS中this的各个环境下指向(一)">
+                <i class="fa fa-chevron-left"></i> JS中this的各个环境下指向(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">梁沛</p>
+              <div class="site-description motion-element" itemprop="description">分享个人技术收获</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/AppleTenlp" title="GitHub &rarr; https://github.com/AppleTenlp" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/tenlp@foxmail.com" title="E-Mail &rarr; tenlp@foxmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8月15日学习笔记"><span class="nav-number">1.</span> <span class="nav-text">8月15日学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中this在各个环境下的指向"><span class="nav-number">1.1.</span> <span class="nav-text">JS中this在各个环境下的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定函数"><span class="nav-number">1.1.1.</span> <span class="nav-text">绑定函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定函数中的this"><span class="nav-number">1.1.2.</span> <span class="nav-text">绑定函数中的this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#紧密的上下文绑定"><span class="nav-number">1.1.3.</span> <span class="nav-text">紧密的上下文绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">1.1.4.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数中的this"><span class="nav-number">1.1.5.</span> <span class="nav-text">箭头函数中的this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陷阱：用箭头函数定义方法"><span class="nav-number">1.1.6.</span> <span class="nav-text">陷阱：用箭头函数定义方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.1.7.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁沛</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
