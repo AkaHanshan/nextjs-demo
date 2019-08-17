@@ -98,16 +98,16 @@
 
 
 
-  <meta name="description" content="分享个人技术收获">
+  <meta name="description" content="Life,Tech">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tenlp">
 <meta property="og:url" content="https://tenlp.cn/index.html">
 <meta property="og:site_name" content="Tenlp">
-<meta property="og:description" content="分享个人技术收获">
+<meta property="og:description" content="Life,Tech">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tenlp">
-<meta name="twitter:description" content="分享个人技术收获">
+<meta name="twitter:description" content="Life,Tech">
 
 
 
@@ -190,7 +190,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">技术小栈</h1>
+        <h1 class="site-subtitle" itemprop="description">小栈</h1>
       
     
     
@@ -328,11 +328,430 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/16/8月16日学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="Life,Tech">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tenlp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/16/8月16日学习笔记/" class="post-title-link" itemprop="url">HTML基础笔记</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-16 19:22:30" itemprop="dateCreated datePublished" datetime="2019-08-16T19:22:30+08:00">2019-08-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-17 19:03:14" itemprop="dateModified" datetime="2019-08-17T19:03:14+08:00">2019-08-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="8月16日学习笔记"><a href="#8月16日学习笔记" class="headerlink" title="8月16日学习笔记"></a>8月16日学习笔记</h1><p><a name="52l59"></a></p>
+<h2 id="HTML基础："><a href="#HTML基础：" class="headerlink" title="HTML基础："></a>HTML基础：</h2><p><a name="GhqZZ"></a></p>
+<h3 id="doctype作用："><a href="#doctype作用：" class="headerlink" title="doctype作用："></a>doctype作用：</h3><p>DOCTYPE是html5标准网页声明，且必须声明在HTML文档第一行。<br>告知浏览器以何种文档标准来解析HTML文档，不同的解析方式对CSS和JavaScript的解析方式都不同。</p>
+<p>文档的解析类型有哪些？</p>
+<ul>
+<li>backCompat:怪异模式，如果不声明DOCTYPE，浏览器即使用自己的怪异模式来解析HTML文档。</li>
+<li>CSS1Compat:标准模式，使用W3C标准来解析HTML文档。</li>
+</ul>
+<p>两者模式区别在哪？</p>
+<ul>
+<li>标准模式：页面按照HTML与CSS的定义渲染。</li>
+<li>怪异模式：页面模拟更旧浏览器的行为渲染。</li>
+</ul>
+<p><a name="8j28H"></a></p>
+<h3 id="HTML-XHTML-XML区别？"><a href="#HTML-XHTML-XML区别？" class="headerlink" title="HTML,XHTML,XML区别？"></a>HTML,XHTML,XML区别？</h3><ul>
+<li>HTML(超文本标记语言)：HTML创建结构化的文档，提供文档的语义。</li>
+<li>XML(可扩展标记语言):主要存储数据以及结构，用于应用间的通信。</li>
+<li>XHTML(可扩展超文本标记语言):基于前两者，W3C为了解决HTML混乱问题而生，基于此诞生了HTML5，开头加入了<!DOCTYPE html>,即标准模式</li>
+</ul>
+<p><a name="K0XCu"></a></p>
+<h3 id="HTML语义化理解？"><a href="#HTML语义化理解？" class="headerlink" title="HTML语义化理解？"></a>HTML语义化理解？</h3><p>语义化是指使用恰当的html标签，让页面具有良好的结构与含义。</p>
+<p>优点：</p>
+<ul>
+<li>开发者友好，增强了HTML文档的可读性，能够清晰的看出网页的结构，便于团队的开发与维护。</li>
+<li>SEO友好，更适合爬虫爬取有效的信息，语义类还能够支持读屏类软件，增强网页的无障碍性。</li>
+</ul>
+<p>对于富文本网页十分重要，增强了其内容的传播。</p>
+<p><a name="drH7c"></a></p>
+<h3 id="HTML5和HTML4区别？"><a href="#HTML5和HTML4区别？" class="headerlink" title="HTML5和HTML4区别？"></a>HTML5和HTML4区别？</h3><ul>
+<li>增加了<!DOCTYPE html>文本类型声明。</li>
+<li>HTML5新增了标准模式解析，并且能够通过怪异模式的解析方式向前兼容。</li>
+<li>新的标签：section，video，nav，meter，time，aside，canvas，details，embed，figure，footer，header，source等等…</li>
+<li>input元素新增类型：date，email，url等等</li>
+<li>新增全域属性：id,tabindex,repeat</li>
+<li>新的全域属性：contenteditable, contextmenu, draggable, dropzone, hidden, spellcheck。</li>
+<li>移除了acronym，applet，big,center,dir,font,frame,frameset,isindex,noframes,strike,tt等元素</li>
+</ul>
+<p><a name="zdRSf"></a></p>
+<h3 id="前端的存储方式？"><a href="#前端的存储方式？" class="headerlink" title="前端的存储方式？"></a>前端的存储方式？</h3><p>有 cookies、localStorage、sessionStorage、WebSQL、indexedDB<br><a name="4sJza"></a></p>
+<h4 id="区别？"><a href="#区别？" class="headerlink" title="区别？"></a>区别？</h4><ul>
+<li>cookies：HTML5标准之前本地存储的主要方式，默认的有效期是关闭浏览器为止，可以自行设置有效期。优点是兼容性好，能够在请求头中带上，缺点是容量太小，只有4kb，每个domain限制20个cookies，使用起来需要自行封装，</li>
+<li>localStorage：HTML5中加入的以键值对(key:value）为标准的方式，优点是操作方便，存储有效期为永久，大小为5MB左右，能够兼容IE8及以后的版本</li>
+<li>sessionStorage:与localStroage类似，区别是当关闭浏览器时，会被清理，且不同于cookie以及localStorage,不能在同源窗口中共享，是会话级别的存储方式</li>
+<li>Web SQL:2010年被W3C废弃的本地数据库存储方式，类似SQLite,是真正意义上的关系型数据库，通过sql进行操作，使用JavaScript时需要进行转换，较为繁琐。</li>
+<li>IndexDB,正式纳入HTML5标准的数据库存储方式，它是NoSQL数据库，通过键值对进行存储，可以快速进行读写操作，同时使用JavaScript操作方便。</li>
+</ul>
+<hr>
+<p>参考链接:<a href="https://github.com/xiaomuzhu/front-end-interview" target="_blank" rel="noopener">https://github.com/xiaomuzhu/front-end-interview</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/15/数据结构笔记(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="Life,Tech">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tenlp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/15/数据结构笔记(一)/" class="post-title-link" itemprop="url">数据结构笔记</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 22:40:39 / 修改时间：22:40:47" itemprop="dateCreated datePublished" datetime="2019-08-15T22:40:39+08:00">2019-08-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="数据结构笔记-一"><a href="#数据结构笔记-一" class="headerlink" title="数据结构笔记(一)"></a>数据结构笔记(一)</h1><p><a name="j6uaJ"></a></p>
+<h2 id="链表："><a href="#链表：" class="headerlink" title="链表："></a>链表：</h2><blockquote>
+<p>链表是由一系列成为表的节点(node)的对象构成的。链表是动态的，也就是说，链表能按需求为表中新元素分配空间。</p>
+</blockquote>
+<p><a name="EL3Bn"></a></p>
+<h3 id="1-1-单向链表："><a href="#1-1-单向链表：" class="headerlink" title="1.1 单向链表："></a>1.1 单向链表：</h3><blockquote>
+<p>链表中的每个节点只有一个指向下一个节点的指针，称作单链表或单向表。</p>
+</blockquote>
+<p>链表的第一个元素通过<code>head</code> 指针访问，为了方便对链表尾端节点的访问，通过<code>tail</code> 指针指向链表的最后一个节点，此外还需要一个curr指针指向当前的节点的前一个节点。</p>
+<blockquote>
+<p>为什么curr指针不指向当前节点，而是指向的前一个节点？</p>
+</blockquote>
+<p>如果将curr指向前一个节点，那么就很容易在curr之后插入一个元素了，当我们需要在链表中插入一个节点的时候，<br>我们首先新建一个节点并且给它赋值，再将新建节点的next域指向当前节点（curr所指节点的下一个节点），再将curr所指的next域指向当前节点：</p>
+<blockquote>
+<p>new Node()-&gt;next=curr-&gt;next;curr-&gt;next=new Node();</p>
+</blockquote>
+<p>如图：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565877667559-277b150b-d185-47b3-b770-e4bac9a7d1d7.png#align=left&display=inline&height=267&originHeight=267&originWidth=626&size=0&status=done&width=626" alt></p>
+<p><code>new Node</code>创造了一个新的节点，新节点的next域赋值为<code>curr-next</code>。而<code>curr</code>所指的节点的<code>next</code>域指向到新节点，这样就完成了链表的插入，时间复杂度是Θ(1)。</p>
+<p>而从链表中删除一个节点只需要重定向待删除节点周围指针即可：</p>
+<blockquote>
+<p><code>Node* temp=curr-&gt;next curr-&gt;next=curr-&gt;next-&gt;next</code></p>
+</blockquote>
+<p>删除时需要注意，将待删除指针指向临时指针，调用<code>delete</code> 释放被删除节点占用的内存。删除一个节点的时间复杂度同样是Θ(1)。</p>
+<p><a name="xopa1"></a></p>
+<h3 id="1-2-双链表："><a href="#1-2-双链表：" class="headerlink" title="1.2 双链表："></a>1.2 双链表：</h3><blockquote>
+<p>双链表可以从一个表节点出发，在线性表中随意访问它的前驱节点和后继节点，它存储了两个指针，一个指向它的前驱节点，另一个一个指向它的后继节点。</p>
+</blockquote>
+<p>和单链表不同的是，双链表额外在链表尾部加入了一个尾节点，不包含任何数据，为了保持概念的一致，本文中curr依旧指向当前节点的前驱节点，与单链表一致。</p>
+<p>双链表的插入：</p>
+<blockquote>
+<p>new Node-&gt;next=curr-&gt;next<br>curr-&gt;next=curr-&gt;next-&gt;prev=new Node</p>
+</blockquote>
+<p>如图所示：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565879561436-c35f52f7-4ea3-4fc2-b968-8d2d1d9c2384.png#align=left&display=inline&height=382&originHeight=382&originWidth=743&size=0&status=done&width=743" alt></p>
+<p>同理，双链表的删除如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Temp = curr-&gt;next-&gt;element;</span><br><span class="line">TempLink* ltemp=curr-&gt;next;</span><br><span class="line">curr-&gt;next-&gt;next-prev=curr;</span><br><span class="line">curr-&gt;next=curr-&gt;next-&gt;next;</span><br><span class="line"><span class="keyword">delete</span> ltemp;</span><br></pre></td></tr></table></figure>
+
+<p>首先对对Temp赋值为将要删除的节点数值，然后将被删节点的后继节点的prev指针指向其前驱节点(curr)，接着将其前驱节点的后继节点指向其后继节点，这样就完成了链表的连接。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/15/8月15日学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁沛">
-      <meta itemprop="description" content="分享个人技术收获">
+      <meta itemprop="description" content="Life,Tech">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -568,7 +987,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁沛">
-      <meta itemprop="description" content="分享个人技术收获">
+      <meta itemprop="description" content="Life,Tech">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -884,7 +1303,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁沛">
-      <meta itemprop="description" content="分享个人技术收获">
+      <meta itemprop="description" content="Life,Tech">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1096,7 +1515,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">梁沛</p>
-              <div class="site-description motion-element" itemprop="description">分享个人技术收获</div>
+              <div class="site-description motion-element" itemprop="description">Life,Tech</div>
           </div>
 
           
@@ -1106,7 +1525,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1146,7 +1565,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

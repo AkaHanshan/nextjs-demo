@@ -98,29 +98,28 @@
 
 
 
-  <meta name="description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
-<meta name="keywords" content="Vue">
+  <meta name="description" content="数据结构笔记(一) 链表： 链表是由一系列成为表的节点(node)的对象构成的。链表是动态的，也就是说，链表能按需求为表中新元素分配空间。   1.1 单向链表： 链表中的每个节点只有一个指向下一个节点的指针，称作单链表或单向表。  链表的第一个元素通过head 指针访问，为了方便对链表尾端节点的访问，通过tail 指针指向链表的最后一个节点，此外还需要一个curr指针指向当前的节点的前一个节点。">
+<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue的异步加载与生命周期">
-<meta property="og:url" content="https://tenlp.cn/2019/08/10/Vue的异步加载与生命周期/index.html">
+<meta property="og:title" content="数据结构笔记">
+<meta property="og:url" content="https://tenlp.cn/2019/08/15/数据结构笔记(一)/index.html">
 <meta property="og:site_name" content="Tenlp">
-<meta property="og:description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
+<meta property="og:description" content="数据结构笔记(一) 链表： 链表是由一系列成为表的节点(node)的对象构成的。链表是动态的，也就是说，链表能按需求为表中新元素分配空间。   1.1 单向链表： 链表中的每个节点只有一个指向下一个节点的指针，称作单链表或单向表。  链表的第一个元素通过head 指针访问，为了方便对链表尾端节点的访问，通过tail 指针指向链表的最后一个节点，此外还需要一个curr指针指向当前的节点的前一个节点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/10/F1fKaiWOuY3oM7E.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/10/aokMwIJtXGRe8QT.png">
-<meta property="og:updated_time" content="2019-08-10T14:43:06.302Z">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/444711/1565877667559-277b150b-d185-47b3-b770-e4bac9a7d1d7.png#align=left&display=inline&height=267&originHeight=267&originWidth=626&size=0&status=done&width=626">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/444711/1565879561436-c35f52f7-4ea3-4fc2-b968-8d2d1d9c2384.png#align=left&display=inline&height=382&originHeight=382&originWidth=743&size=0&status=done&width=743">
+<meta property="og:updated_time" content="2019-08-15T14:40:47.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue的异步加载与生命周期">
-<meta name="twitter:description" content="问题最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下： 12345678910111213let defect = new Vue(&amp;#123;        el: &apos;#defect&apos;,        data: &amp;#123;            defectList: []        &amp;#125;,">
-<meta name="twitter:image" content="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png">
+<meta name="twitter:title" content="数据结构笔记">
+<meta name="twitter:description" content="数据结构笔记(一) 链表： 链表是由一系列成为表的节点(node)的对象构成的。链表是动态的，也就是说，链表能按需求为表中新元素分配空间。   1.1 单向链表： 链表中的每个节点只有一个指向下一个节点的指针，称作单链表或单向表。  链表的第一个元素通过head 指针访问，为了方便对链表尾端节点的访问，通过tail 指针指向链表的最后一个节点，此外还需要一个curr指针指向当前的节点的前一个节点。">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/png/444711/1565877667559-277b150b-d185-47b3-b770-e4bac9a7d1d7.png#align=left&display=inline&height=267&originHeight=267&originWidth=626&size=0&status=done&width=626">
 
 
 
 
 
 
-  <link rel="canonical" href="https://tenlp.cn/2019/08/10/Vue的异步加载与生命周期/">
+  <link rel="canonical" href="https://tenlp.cn/2019/08/15/数据结构笔记(一)/">
 
 
 
@@ -130,7 +129,7 @@
   };
 </script>
 
-  <title>Vue的异步加载与生命周期 | Tenlp</title>
+  <title>数据结构笔记 | Tenlp</title>
   
 
 
@@ -333,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/10/Vue的异步加载与生命周期/">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/15/数据结构笔记(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁沛">
@@ -350,7 +349,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Vue的异步加载与生命周期
+          <h2 class="post-title" itemprop="name headline">数据结构笔记
 
               
             
@@ -376,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 18:24:39 / 修改时间：22:43:06" itemprop="dateCreated datePublished" datetime="2019-08-10T18:24:39+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-15 22:40:39 / 修改时间：22:40:47" itemprop="dateCreated datePublished" datetime="2019-08-15T22:40:39+08:00">2019-08-15</time>
             
 
             
@@ -433,45 +432,45 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>最近项目上需要通过获取后端传过来的JSON数组，采用的是Vue+axios来异步加载数据，但是在加载的时候遇见了这样的一个问题，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defect = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#defect'</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            defectList: []</span><br><span class="line">        &#125;,</span><br><span class="line">       created() &#123;</span><br><span class="line">            axios.get(<span class="string">'$&#123;ctx&#125;/def/defMessage/listJson'</span>).then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.defectList = response.data))</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+        <h1 id="数据结构笔记-一"><a href="#数据结构笔记-一" class="headerlink" title="数据结构笔记(一)"></a>数据结构笔记(一)</h1><p><a name="j6uaJ"></a></p>
+<h2 id="链表："><a href="#链表：" class="headerlink" title="链表："></a>链表：</h2><blockquote>
+<p>链表是由一系列成为表的节点(node)的对象构成的。链表是动态的，也就是说，链表能按需求为表中新元素分配空间。</p>
+</blockquote>
+<p><a name="EL3Bn"></a></p>
+<h3 id="1-1-单向链表："><a href="#1-1-单向链表：" class="headerlink" title="1.1 单向链表："></a>1.1 单向链表：</h3><blockquote>
+<p>链表中的每个节点只有一个指向下一个节点的指针，称作单链表或单向表。</p>
+</blockquote>
+<p>链表的第一个元素通过<code>head</code> 指针访问，为了方便对链表尾端节点的访问，通过<code>tail</code> 指针指向链表的最后一个节点，此外还需要一个curr指针指向当前的节点的前一个节点。</p>
+<blockquote>
+<p>为什么curr指针不指向当前节点，而是指向的前一个节点？</p>
+</blockquote>
+<p>如果将curr指向前一个节点，那么就很容易在curr之后插入一个元素了，当我们需要在链表中插入一个节点的时候，<br>我们首先新建一个节点并且给它赋值，再将新建节点的next域指向当前节点（curr所指节点的下一个节点），再将curr所指的next域指向当前节点：</p>
+<blockquote>
+<p>new Node()-&gt;next=curr-&gt;next;curr-&gt;next=new Node();</p>
+</blockquote>
+<p>如图：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565877667559-277b150b-d185-47b3-b770-e4bac9a7d1d7.png#align=left&display=inline&height=267&originHeight=267&originWidth=626&size=0&status=done&width=626" alt></p>
+<p><code>new Node</code>创造了一个新的节点，新节点的next域赋值为<code>curr-next</code>。而<code>curr</code>所指的节点的<code>next</code>域指向到新节点，这样就完成了链表的插入，时间复杂度是Θ(1)。</p>
+<p>而从链表中删除一个节点只需要重定向待删除节点周围指针即可：</p>
+<blockquote>
+<p><code>Node* temp=curr-&gt;next curr-&gt;next=curr-&gt;next-&gt;next</code></p>
+</blockquote>
+<p>删除时需要注意，将待删除指针指向临时指针，调用<code>delete</code> 释放被删除节点占用的内存。删除一个节点的时间复杂度同样是Θ(1)。</p>
+<p><a name="xopa1"></a></p>
+<h3 id="1-2-双链表："><a href="#1-2-双链表：" class="headerlink" title="1.2 双链表："></a>1.2 双链表：</h3><blockquote>
+<p>双链表可以从一个表节点出发，在线性表中随意访问它的前驱节点和后继节点，它存储了两个指针，一个指向它的前驱节点，另一个一个指向它的后继节点。</p>
+</blockquote>
+<p>和单链表不同的是，双链表额外在链表尾部加入了一个尾节点，不包含任何数据，为了保持概念的一致，本文中curr依旧指向当前节点的前驱节点，与单链表一致。</p>
+<p>双链表的插入：</p>
+<blockquote>
+<p>new Node-&gt;next=curr-&gt;next<br>curr-&gt;next=curr-&gt;next-&gt;prev=new Node</p>
+</blockquote>
+<p>如图所示：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1565879561436-c35f52f7-4ea3-4fc2-b968-8d2d1d9c2384.png#align=left&display=inline&height=382&originHeight=382&originWidth=743&size=0&status=done&width=743" alt></p>
+<p>同理，双链表的删除如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Temp = curr-&gt;next-&gt;element;</span><br><span class="line">TempLink* ltemp=curr-&gt;next;</span><br><span class="line">curr-&gt;next-&gt;next-prev=curr;</span><br><span class="line">curr-&gt;next=curr-&gt;next-&gt;next;</span><br><span class="line"><span class="keyword">delete</span> ltemp;</span><br></pre></td></tr></table></figure>
 
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这里先来了解一下Vue实例的生命周期，官方文档是这么说的：<a href="https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">链接</a></p>
-<blockquote>
-<p><img src="https://i.loli.net/2019/08/10/BLhtlxud9JXa87W.png" alt="vuelife.png"></p>
-</blockquote>
-<p>所以这里应该是在Vue实例创建的时候就通过axios异步加载JSON赋值给data中的defectList数组，然而为什么在mouted，也就是Vue实例挂载到DOM上时，输出defectList的时候，输出的是：<br><img src="https://i.loli.net/2019/08/10/F1fKaiWOuY3oM7E.png" alt="image.png"><br>也就是说，当挂载到DOM上的时候，我们的defectList数组还是空值，这又是为什么呢？再回顾一遍异步加载的知识，<a href="https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff" target="_blank" rel="noopener">什么是异步加载？</a><br>简要来说就是:</p>
-<blockquote>
-<p><strong>Async</strong> is short for “<strong>asynchronous</strong>”. It’s easier to understand <strong>async</strong> if you first understand what “<strong>synchronous</strong>”, the opposite, means. … <strong>Asynchronous</strong> code takes statements outside of the main program flow, allowing the code after the<strong>asynchronous</strong> call to be executed immediately without waiting.</p>
-</blockquote>
-<p>即：</p>
-<blockquote>
-<p>异步加载和同步加载相反，异步代码将语句置于主程序流之外，允许在异步调用之后立即执行代码而无需等待</p>
-</blockquote>
-<p>看到这，似乎有点眉目了，那就是代码中的异步加载使得当Vue实例创建时，语句并没有异步执行，而是当实例挂载到DOM之后，才通过更新数据进行渲染，为了验证这一观点，在<a href="https://cn.vuejs.org/v2/api/#updated" target="_blank" rel="noopener">updated</a>这个钩子内输出defectList数组内容查看是否被更新,updated钩子介绍如下:</p>
-<blockquote>
-<ul>
-<li><p>类型 <code>function</code></p>
-</li>
-<li><p>详细</p>
-</li>
-</ul>
-</blockquote>
-<p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
-<blockquote>
-<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watcher</a> 取而代之。</p>
-</blockquote>
-<blockquote>
-<p>注意 <code>updated</code> <strong>不会</strong>承诺所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick" target="_blank" rel="noopener">vm.$nextTick</a> 替换掉 <code>updated</code>：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that will run only after the</span></span><br><span class="line">    <span class="comment">// entire view has been re-rendered</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><br>将代码加上updated钩子，调用console.log(defectList)查看数组内容:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defect = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#defect'</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            defectList: []</span><br><span class="line">        &#125;,</span><br><span class="line">        created() &#123;</span><br><span class="line">            axios.get(<span class="string">'$&#123;ctx&#125;/def/defMessage/listJson'</span>).then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.defectList = response.data))</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;,</span><br><span class="line">        updated()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.defectList)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看见这时输出了从后台加载来的JSON数组<br><img src="https://i.loli.net/2019/08/10/aokMwIJtXGRe8QT.png" alt="image.png"></p>
-<p><a name="TwjZO"></a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果在Vue中通过异步加载获取数据时，数据会在实例挂载到DOM之后才加载上，接着对这个节点进行更新，因此在mouted已经之前的钩子中无法获取异步加载的数据</p>
+<p>首先对对Temp赋值为将要删除的节点数值，然后将被删节点的后继节点的prev指针指向其前驱节点(curr)，接着将其前驱节点的后继节点指向其后继节点，这样就完成了链表的连接。</p>
 
       
     </div>
@@ -495,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
         </div>
       
@@ -508,14 +507,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/15/8月15日学习笔记/" rel="next" title="JS中this的各个环境下指向(二)">
+                <i class="fa fa-chevron-left"></i> JS中this的各个环境下指向(二)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/14/8月14日学习笔记/" rel="prev" title="JS中this的各个环境下指向(一)">
-                JS中this的各个环境下指向(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/16/8月16日学习笔记/" rel="prev" title="HTML基础笔记">
+                HTML基础笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -691,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构笔记-一"><span class="nav-number">1.</span> <span class="nav-text">数据结构笔记(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表："><span class="nav-number">1.1.</span> <span class="nav-text">链表：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-单向链表："><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 单向链表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-双链表："><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 双链表：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
