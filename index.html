@@ -328,6 +328,266 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/18/8月18日学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="Life,Tech">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tenlp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/18/8月18日学习笔记/" class="post-title-link" itemprop="url">设计模式及HTTP基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-18 22:01:19 / 修改时间：22:02:50" itemprop="dateCreated datePublished" datetime="2019-08-18T22:01:19+08:00">2019-08-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="8月18日学习笔记"><a href="#8月18日学习笔记" class="headerlink" title="8月18日学习笔记"></a>8月18日学习笔记</h1><p><a name="BiVt6"></a></p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式:"></a>设计模式:</h2><p><a name="aozAb"></a></p>
+<h3 id="1-简单工厂模式："><a href="#1-简单工厂模式：" class="headerlink" title="1.简单工厂模式："></a>1.简单工厂模式：</h3><blockquote>
+<p>设计一个单独的类来控制实例化的过程，这就是工厂。</p>
+</blockquote>
+<p><a name="au257"></a></p>
+<h4 id="核心思想："><a href="#核心思想：" class="headerlink" title="核心思想："></a>核心思想：</h4><p>将创建对象的操作单独封装，只对外留出接口，实现构造函数和创建者的分离。</p>
+<p><a name="rYknX"></a></p>
+<h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ul>
+<li>简单工厂模式:一个工厂对象用来创建同一类对象实例。</li>
+<li>工厂方法模式:建立抽象核心类，将创建实例的实际重心放在核心抽象大类的子类中(?)</li>
+<li>抽象工厂模式:对类的工厂抽象来创建产品类簇，不负责创建某一类产品的实例。</li>
+</ul>
+<p><a name="1U1tD"></a></p>
+<h4 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Product</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Product</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(proName)&#123;</span><br><span class="line">        <span class="keyword">this</span>.proName=proName;</span><br><span class="line">    &#125;</span><br><span class="line">    init()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Initation '</span>+<span class="keyword">this</span>.proName)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Product factory</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductFactory</span></span>&#123;</span><br><span class="line">    create(proName)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Product (proName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> ProductFactory();</span><br><span class="line"><span class="keyword">let</span> b=a.create(<span class="string">'Ipad'</span>);</span><br><span class="line">b.init(); <span class="comment">//=&gt;Initation Ipad</span></span><br></pre></td></tr></table></figure>
+
+<p>从中可以看出，工厂模式最直观的地方在于，创建对象不是直接通过创建产品类的对象实际，而是通过工厂方法实现。</p>
+<blockquote>
+<p>在工厂模式中，每次创建新的对象实例时，只需要传入对应参数就能得到指定的对象。</p>
+</blockquote>
+<p><a name="ampnz"></a></p>
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>(1)jQuery选择器$(Selector):</p>
+<p>$(Selector)能直接实现new $(Selector)的效果，同时去除了new书写繁杂的弊端，且实现链式操作，代码简洁。<br>其底层实现如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JQuery</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(selector)&#123;</span><br><span class="line">    <span class="keyword">super</span>(selector)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//..</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.$=<span class="function"><span class="keyword">function</span>(<span class="params">selector</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> JQuery(selector)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(2)Vue 异步组件:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.componet(<span class="string">'async'</span>,(resolve,reject)=&gt;&#123;</span><br><span class="line">  setTimeout (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    resolve(&#123;</span><br><span class="line">      template:<span class="string">'&lt;div&gt; I am template!&lt;/div&gt;'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><a name="VNBLv"></a></p>
+<h2 id="前端基础："><a href="#前端基础：" class="headerlink" title="前端基础："></a>前端基础：</h2><p><a name="3FNzx"></a></p>
+<h3 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1.HTTP协议:"></a>1.HTTP协议:</h3><p><a name="Gvmat"></a></p>
+<h4 id="HTTP方法："><a href="#HTTP方法：" class="headerlink" title="HTTP方法："></a>HTTP方法：</h4><ul>
+<li><p>HTTP1.0定义了GET,POST,HEAD方法</p>
+</li>
+<li><p>HTTP1.1新增了OPTIONS,PUT,DELETE,TRACE和CONNECT方法<br><a name="YZrl0"></a></p>
+<h4 id="方法作用？"><a href="#方法作用？" class="headerlink" title="方法作用？"></a>方法作用？</h4></li>
+<li><p>GET:请求服务器发送某些资源。</p>
+</li>
+<li><p>POST:通常是前端发送数据到后端。</p>
+</li>
+<li><p>HEAD:请求资源的头部信息，通常用在请求下载一个大文件前获取其大小再决定是否下载以节约带宽。</p>
+</li>
+<li><p>OPTIONS:用于获取目的资源支持的通信选项。</p>
+</li>
+<li><p>PUT：用于新增资源或者使用请求中的有效负载替换目标资源的表现形式(?)</p>
+</li>
+<li><p>DELETE:删除指定资源</p>
+</li>
+<li><p>PATCH：对资源进行更新(modified)</p>
+</li>
+<li><p>CONNECT:HTTP/1.1协议中预留给将连接改为管道方式的代理服务器。</p>
+</li>
+<li><p>TRACE：回显服务器收到请求。<br><a name="JDsw5"></a></p>
+<h4 id="PUT和POST区别："><a href="#PUT和POST区别：" class="headerlink" title="PUT和POST区别："></a>PUT和POST区别：</h4><p>PUT和POST方法区别在于，PUT方法是幂等的，连续调用多次效果相同，而POST为非幂等，且通常情况下PUT指向具体单一资源而POST指向资源集合。</p>
+</li>
+</ul>
+<blockquote>
+<p>举个例子，我们在开发一个博客系统，当我们要创建一篇文章的时候往往用<code>POST https://www.jianshu.com/articles</code>，这个请求的语义是，在articles的资源集合下创建一篇新的文章，如果我们多次提交这个请求会创建多个文章，这是非幂等的。<br>而<code>PUT https://www.jianshu.com/articles/820357430</code>的语义是更新对应文章下的资源（比如修改作者名称等），这个URI指向的就是单一资源，而且是幂等的，比如你把『刘德华』修改成『蔡徐坤』，提交多少次都是修改成『蔡徐坤』</p>
+</blockquote>
+<p>POST和PUT根本区别在于幂等性。</p>
+<p><a name="isb3K"></a></p>
+<h4 id="PUT和PATCH区别"><a href="#PUT和PATCH区别" class="headerlink" title="PUT和PATCH区别"></a>PUT和PATCH区别</h4><blockquote>
+<p>PUT直接发送覆盖整个资源来进行修改，而PATCH只需要发送需要修改的部分。</p>
+</blockquote>
+<p><a name="n5LLN"></a></p>
+<h4 id="HTTP状态码？"><a href="#HTTP状态码？" class="headerlink" title="HTTP状态码？"></a>HTTP状态码？</h4><p>2XX 成功:</p>
+<ul>
+<li>200 OK，表示从客户端发来的请求在服务器端被正确处理 </li>
+<li>201 Created 请求已经被实现，而且有一个新的资源已经依据请求的需要而建立</li>
+<li>202 Accepted 请求已接受，但是还没执行，不保证完成请求</li>
+<li>204 No content，表示请求成功，但响应报文不含实体的主体部分</li>
+<li>206 Partial Content，进行范围请求 </li>
+</ul>
+<p>3XX重定向:</p>
+<ul>
+<li>301 moved permanently，永久性重定向，表示资源已被分配了新的 URL</li>
+<li>302 found，临时性重定向，表示资源临时被分配了新的 URL </li>
+<li>303 see other，表示资源存在着另一个 URL，应使用 GET 方法定向获取资源</li>
+<li>304 not modified，表示服务器允许访问资源，但因发生请求未满足条件的情况</li>
+<li>307 temporary redirect，临时重定向，和302含义相同</li>
+</ul>
+<p>4XX客户端错误:</p>
+<ul>
+<li>400 bad request，请求报文存在语法错误 </li>
+<li>401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息 </li>
+<li>403 forbidden，表示对请求资源的访问被服务器拒绝 </li>
+<li>404 not found，表示在服务器上没有找到请求的资源 </li>
+<li>408 Request timeout, 客户端请求超时</li>
+<li>409 Confict, 请求的资源可能引起冲突</li>
+</ul>
+<p>5XX服务器错误</p>
+<ul>
+<li>500 internal sever error，表示服务器端在执行请求时发生了错误 </li>
+<li>501 Not Implemented 请求超出服务器能力范围，例如服务器不支持当前请求所需要的某个功能，或者请求是服务器不支持的某个方法</li>
+<li>503 service unavailable，表明服务器暂时处于超负载或正在停机维护，无法处理请求</li>
+<li>505 http version not supported 服务器不支持，或者拒绝支持在请求中使用的 HTTP 版本</li>
+</ul>
+<p><a name="OVhpc"></a></p>
+<h4 id="307，303，302区别？"><a href="#307，303，302区别？" class="headerlink" title="307，303，302区别？"></a>307，303，302区别？</h4><p>302是http1.0状态码，在http1.1中细化302，分出了303和307。<br>303明确表示客户端应当采用get方法获取资源，会将POST请求变为GET请求重定向。<br>而307遵照浏览器标准，不会将POST转换为GET</p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/16/8月16日学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1525,7 +1785,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
