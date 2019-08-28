@@ -335,6 +335,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/28/8月28日学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁沛">
+      <meta itemprop="description" content="Life,Tech">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tenlp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/28/8月28日学习笔记/" class="post-title-link" itemprop="url">8月28日学习笔记</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 23:58:57" itemprop="dateCreated datePublished" datetime="2019-08-28T23:58:57+08:00">2019-08-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-29 00:08:50" itemprop="dateModified" datetime="2019-08-29T00:08:50+08:00">2019-08-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="8月28日学习笔记"><a href="#8月28日学习笔记" class="headerlink" title="8月28日学习笔记"></a>8月28日学习笔记</h1><p><a name="UY89Z"></a></p>
+<h2 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础:"></a>JavaScript基础:</h2><p><a name="y9Lr7"></a></p>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升:"></a>变量提升:</h3><blockquote>
+<p>JavaScript引擎的工作方式是先解析代码，获取所有被声明的变量再一行行运行。造成所有变量的声明语句都会提升到代码的头部，称作变量提升</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>(a)<span class="comment">//=&gt;undefined</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);<span class="comment">//=&gt;1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中，实际的执行顺序如下:</p>
+<ol>
+<li>引擎将var a=1拆解为var a=undefined和a=1，并将var a=undefined放到代码头部，a=1在原位</li>
+<li>当程序执行时，从上往下一行行执行，就造成了当前结果，这就叫变量提升</li>
+</ol>
+<p><a name="7p3CF"></a></p>
+<h3 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h3><blockquote>
+<p>闭包是函数和声明该函数的词法环境的组合<br>即:闭包等于函数及函数体内可访问变量的总和</p>
+</blockquote>
+<p>例如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b=<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">var</span> sum=b+a</span><br><span class="line">  <span class="built_in">console</span>.log(sum);</span><br><span class="line">&#125;</span><br><span class="line">  add()</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p>add函数本身以及内部可访问的变量(a=1)，这两者组合在一起即称作闭包<br><a name="CUnUi"></a></p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用:"></a>作用:</h4><p>闭包最大的作用在于隐藏变量</p>
+<blockquote>
+<p>闭包的一大特性就是内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在外部函数被返回(寿命终结)之后</p>
+</blockquote>
+<p>基于此，JavaScript可以实现私有变量、特权变量、储存变量等</p>
+<p><a name="aevQ6"></a></p>
+<h4 id="私有变量"><a href="#私有变量" class="headerlink" title="私有变量:"></a>私有变量:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name=<span class="string">'xiaomin'</span>;</span><br><span class="line">    <span class="keyword">this</span>.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.setName=<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">        name=value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> xiaomin=<span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(xiaomin.getName());<span class="comment">//=&gt;xiaomin</span></span><br><span class="line">xiaomin.setName(<span class="string">'xiaoqiang'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xiaomin.getName());<span class="comment">//=&gt;xiaoqiang</span></span><br><span class="line"><span class="built_in">console</span>.log(name);<span class="comment">//=&gt;undifined</span></span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中，函数体内的name只有getName和setName两个函数可以访问，而外部无法访问，相当于函数的私有变量。</p>
+<hr>
+<p><a name="biBiU"></a></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链:"></a>原型链:</h3><p><a name="YfeJE"></a></p>
+<h4 id="原型对象："><a href="#原型对象：" class="headerlink" title="原型对象："></a>原型对象：</h4><blockquote>
+<p>绝大部分函数都有一个prototype属性，这个属性是原型对象用来创建新对象实例，而所有被创建的对象都共享原型对象，因此这些对象可以访问原型对象的属性</p>
+</blockquote>
+<p>例如hasOwnProperty()方法存在于Object原型对象中，它可以被任意对象当作自己方法调用。<br><code>用法:object.hasOwnProperty( propertyName )</code> 如果对象有名称为prototypeName的属性，返回true否则返回为false<br>例如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">    name:<span class="string">'xiaomin'</span>,</span><br><span class="line">    age:<span class="number">29</span>,</span><br><span class="line">    sex:<span class="string">'male'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person.hasOwnProperty(<span class="string">"name"</span>));<span class="comment">//=&gt;true</span></span><br></pre></td></tr></table></figure>
+
+<p>从这可以看出来，虽然hasOwnPrototype()不存在person对象中，但是它仍然可以调用此方法，而person对象找到Object对象中的方法靠的就是原型链。<br><a name="2zLM1"></a></p>
+<h4 id="原型链-1"><a href="#原型链-1" class="headerlink" title="原型链:"></a>原型链:</h4><blockquote>
+<p>每个对象都有_proto_属性，此属性指向对象的构造函数的原型</p>
+</blockquote>
+<p>对象可以通过_proto_与上游的构造函数连接起来，而上游的的原型对象也拥有一个_proto_，这样就形成了原型链。<br>如图所示:<br><img src="https://cdn.nlark.com/yuque/0/2019/png/444711/1567008343096-fe06e31b-003e-471c-9e4e-a9e4f403d359.png#align=left&display=inline&height=620&originHeight=620&originWidth=567&size=0&status=done&width=567" alt></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/20/8月20学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1976,7 +2191,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
