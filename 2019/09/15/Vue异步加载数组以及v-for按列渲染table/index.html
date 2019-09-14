@@ -105,25 +105,27 @@
 
 
 
-  <meta name="description" content="8月20学习笔记 设计模式: 2.单例模式: 单例模式有以下特点:  单例模式中，一个类只能有一个实例(必须是强相等===)。 单例类必须创建自己的唯一实例， 单例类必须给所以其他对象提供这一实例    #### 业务场景?应用于一些只存在一个的业务，例如弹窗，购物车等等。无论在单页面还是多页面中，这些场景业务只存在一个。使用单例模式来避免使用外部变量判定实例是否存在。  演示:1.懒汉式 123">
+  <meta name="description" content="Vue异步加载数组以及v-for按列渲染table 一、异步加载数组老生常谈的话题了，这次照样是由于直接使用赋值导致Vue无法监听到数组元素的改变从而无法响应式更新视图层数据，因此还是通过push()方法将JSON获取到的数组push进属性中的数组中: 123456789101112131415161718192021var equiInfo = new Vue(&amp;#123;        el:">
 <meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式">
-<meta property="og:url" content="https://tenlp.cn/2019/08/20/8月20学习笔记/index.html">
+<meta property="og:title" content="Vue异步加载数组以及v-for按列渲染table">
+<meta property="og:url" content="https://tenlp.cn/2019/09/15/Vue异步加载数组以及v-for按列渲染table/index.html">
 <meta property="og:site_name" content="Tenlp">
-<meta property="og:description" content="8月20学习笔记 设计模式: 2.单例模式: 单例模式有以下特点:  单例模式中，一个类只能有一个实例(必须是强相等===)。 单例类必须创建自己的唯一实例， 单例类必须给所以其他对象提供这一实例    #### 业务场景?应用于一些只存在一个的业务，例如弹窗，购物车等等。无论在单页面还是多页面中，这些场景业务只存在一个。使用单例模式来避免使用外部变量判定实例是否存在。  演示:1.懒汉式 123">
+<meta property="og:description" content="Vue异步加载数组以及v-for按列渲染table 一、异步加载数组老生常谈的话题了，这次照样是由于直接使用赋值导致Vue无法监听到数组元素的改变从而无法响应式更新视图层数据，因此还是通过push()方法将JSON获取到的数组push进属性中的数组中: 123456789101112131415161718192021var equiInfo = new Vue(&amp;#123;        el:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-20T14:14:31.087Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/15/Eu4gIYetiSrD8dV.png">
+<meta property="og:updated_time" content="2019-09-14T16:46:27.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式">
-<meta name="twitter:description" content="8月20学习笔记 设计模式: 2.单例模式: 单例模式有以下特点:  单例模式中，一个类只能有一个实例(必须是强相等===)。 单例类必须创建自己的唯一实例， 单例类必须给所以其他对象提供这一实例    #### 业务场景?应用于一些只存在一个的业务，例如弹窗，购物车等等。无论在单页面还是多页面中，这些场景业务只存在一个。使用单例模式来避免使用外部变量判定实例是否存在。  演示:1.懒汉式 123">
+<meta name="twitter:title" content="Vue异步加载数组以及v-for按列渲染table">
+<meta name="twitter:description" content="Vue异步加载数组以及v-for按列渲染table 一、异步加载数组老生常谈的话题了，这次照样是由于直接使用赋值导致Vue无法监听到数组元素的改变从而无法响应式更新视图层数据，因此还是通过push()方法将JSON获取到的数组push进属性中的数组中: 123456789101112131415161718192021var equiInfo = new Vue(&amp;#123;        el:">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/15/Eu4gIYetiSrD8dV.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://tenlp.cn/2019/08/20/8月20学习笔记/">
+  <link rel="canonical" href="https://tenlp.cn/2019/09/15/Vue异步加载数组以及v-for按列渲染table/">
 
 
 
@@ -133,7 +135,7 @@
   };
 </script>
 
-  <title>设计模式 | Tenlp</title>
+  <title>Vue异步加载数组以及v-for按列渲染table | Tenlp</title>
   
 
 
@@ -336,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/08/20/8月20学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://tenlp.cn/2019/09/15/Vue异步加载数组以及v-for按列渲染table/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁沛">
@@ -353,7 +355,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">设计模式
+          <h2 class="post-title" itemprop="name headline">Vue异步加载数组以及v-for按列渲染table
 
               
             
@@ -379,7 +381,7 @@
                 
               
 
-              <time title="创建时间：2019-08-20 22:14:43 / 修改时间：22:14:31" itemprop="dateCreated datePublished" datetime="2019-08-20T22:14:43+08:00">2019-08-20</time>
+              <time title="创建时间：2019-09-15 00:46:32 / 修改时间：00:46:27" itemprop="dateCreated datePublished" datetime="2019-09-15T00:46:32+08:00">2019-09-15</time>
             
 
             
@@ -436,30 +438,16 @@
       
 
       
-        <h1 id="8月20学习笔记"><a href="#8月20学习笔记" class="headerlink" title="8月20学习笔记"></a>8月20学习笔记</h1><p><a name="KAGsY"></a></p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式:"></a>设计模式:</h2><p><a name="niy2X"></a></p>
-<h3 id="2-单例模式"><a href="#2-单例模式" class="headerlink" title="2.单例模式:"></a>2.单例模式:</h3><blockquote>
-<p>单例模式有以下特点:</p>
-<ul>
-<li>单例模式中，一个类只能有一个实例(必须是强相等===)。</li>
-<li>单例类必须创建自己的唯一实例，</li>
-<li>单例类必须给所以其他对象提供这一实例</li>
-</ul>
-</blockquote>
-<p><a name="QuVnR"></a></p>
-<p>####<br><a name="i7tMe"></a></p>
-<h4 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景?"></a>业务场景?</h4><p>应用于一些只存在一个的业务，例如弹窗，购物车等等。无论在单页面还是多页面中，这些场景业务只存在一个。使用单例模式来避免使用外部变量判定实例是否存在。</p>
-<p><a name="FSaGl"></a></p>
-<h4 id="演示"><a href="#演示" class="headerlink" title="演示:"></a>演示:</h4><p>1.懒汉式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    login()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'loging.....'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Model.create=(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> instance;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!instance)&#123;</span><br><span class="line">            instance=<span class="keyword">new</span> Model();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">let</span> m1=Model.create();</span><br><span class="line"><span class="keyword">let</span> m2=Model.create();</span><br><span class="line"><span class="built_in">console</span>.log(m1===m2);<span class="comment">//=&gt;true</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Vue异步加载数组以及v-for按列渲染table"><a href="#Vue异步加载数组以及v-for按列渲染table" class="headerlink" title="Vue异步加载数组以及v-for按列渲染table"></a>Vue异步加载数组以及v-for按列渲染table</h1><p><a name="VQfD1"></a></p>
+<h2 id="一、异步加载数组"><a href="#一、异步加载数组" class="headerlink" title="一、异步加载数组"></a>一、异步加载数组</h2><p>老生常谈的话题了，这次照样是由于直接使用赋值导致Vue无法监听到数组元素的改变从而无法响应式更新视图层数据，因此还是通过push()方法将JSON获取到的数组push进属性中的数组中:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> equiInfo = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">'#equ-info'</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            theMenName: [],</span><br><span class="line">            theEquNo: [],</span><br><span class="line">            theEquName: [],</span><br><span class="line">            theEquKind: [],</span><br><span class="line">            theEquEndDate: []</span><br><span class="line">        &#125;,</span><br><span class="line">        created() &#123;</span><br><span class="line">            <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">            axios.get(equipUrl).then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> data = res.data;</span><br><span class="line">                _this.theMenName.push(data.theMenName);</span><br><span class="line">                _this.theEquNo.push(data.theEquNo);</span><br><span class="line">                _this.theEquName.push(data.theEquName);</span><br><span class="line">                _this.theEquKind.push(data.theEquKind);</span><br><span class="line">                _this.theEquEndDate.push(data.theEquEndDate);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
-<p>这里通过JavaScript的立即执行函数和闭包函数，确定初始实例，通过判定instance是否存在，若存在直接返回，否则创建后返回，确保一个类有且只有一个实例对象。</p>
-<p>2.饿汉式:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Model =(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> instance;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance)&#123;</span><br><span class="line">            <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">return</span> instance=<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">Model.prototype.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> question=<span class="keyword">new</span> Model(<span class="string">'问题'</span>);</span><br><span class="line"><span class="keyword">let</span> answer=<span class="keyword">new</span> Model(<span class="string">'答案'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(question===answer);<span class="comment">//=&gt;true</span></span><br><span class="line"><span class="built_in">console</span>.log(question.getName());<span class="comment">//=&gt;true</span></span><br><span class="line"><span class="built_in">console</span>.log(answer.getName());<span class="comment">//=&gt;true</span></span><br></pre></td></tr></table></figure>
+<p>在这里遇见了一个小坑，由于then内的<code>function(res){}</code> 是闭包，所以在<code>function</code> 内部this的指向的是全局对象也就是window，所以得在外部声明一个变量<code>_this</code> 指向外部函数的<code>this</code> 。</p>
+<p><a name="7ITwx"></a></p>
+<h2 id="二、v-for按列渲染table"><a href="#二、v-for按列渲染table" class="headerlink" title="二、v-for按列渲染table"></a>二、v-for按列渲染table</h2><p>这里由于后端给的是一个这样的JSON数据:<br><code>{theEquName: Array(3), theEquNo: Array(3), theEquEndDate: Array(3), theMenName: Array(3), theEquKind: Array(3)}</code> 因此是一个二维的数组，需要进行遍历，于是在HTML中这样写:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"equ-info"</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">td</span> <span class="attr">v-for</span>=<span class="string">"item in theMenName"</span> &gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"data in item"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">tr</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">td</span> <span class="attr">v-for</span>=<span class="string">"item in theEquNo"</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"data in item"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">tr</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">td</span> <span class="attr">v-for</span>=<span class="string">"item in theEquName"</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"data in item"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">tr</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">td</span> <span class="attr">v-for</span>=<span class="string">"item in theEquKind"</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"data in item"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">tr</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">td</span> <span class="attr">v-for</span>=<span class="string">"item in theEquEndDate"</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"data in item"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">tr</span> <span class="attr">:key</span>=<span class="string">"data"</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>从上面代码结果可以看出，单例模式的实现实质是创建一个可以返回对象的实例的引用以及一个获取该实例的方法。并且保证创建的该实例的引用是唯一的。</p>
-<p><a name="jzlJZ"></a></p>
-<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景?"></a>应用场景?</h4><p>在Vue中的Vuex和redux中的store</p>
+<p>不过这样的话，:key由于有相同的，vue会报错，接下来将对这个进行优化，确保每个key都是唯一的。<br>最终效果如下:<br><img src="https://i.loli.net/2019/09/15/Eu4gIYetiSrD8dV.png" alt="table.png"></p>
 
       
     </div>
@@ -496,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/18/8月18日学习笔记/" rel="next" title="设计模式及HTTP基础">
-                <i class="fa fa-chevron-left"></i> 设计模式及HTTP基础
+              <a href="/2019/09/02/Flex布局/" rel="next" title="Flex布局">
+                <i class="fa fa-chevron-left"></i> Flex布局
               </a>
             
           </div>
@@ -505,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/28/8月28日学习笔记/" rel="prev" title="8月28日学习笔记">
-                8月28日学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -683,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8月20学习笔记"><span class="nav-number">1.</span> <span class="nav-text">8月20学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式"><span class="nav-number">1.1.</span> <span class="nav-text">设计模式:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-单例模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.单例模式:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#业务场景"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">业务场景?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#演示"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">演示:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">应用场景?</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue异步加载数组以及v-for按列渲染table"><span class="nav-number">1.</span> <span class="nav-text">Vue异步加载数组以及v-for按列渲染table</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、异步加载数组"><span class="nav-number">1.1.</span> <span class="nav-text">一、异步加载数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、v-for按列渲染table"><span class="nav-number">1.2.</span> <span class="nav-text">二、v-for按列渲染table</span></a></li></ol></li></ol></div>
             
 
           </div>
