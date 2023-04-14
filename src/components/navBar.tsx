@@ -10,7 +10,6 @@ export function Navbar() {
           <div className="flex items-center filter dark:invert">
             <Link href="/">
               <Image
-                // type=svg
                 src="next.svg"
                 alt="next.js"
                 width={100}
