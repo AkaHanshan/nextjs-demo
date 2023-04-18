@@ -48,7 +48,7 @@ export async function getServerSideProps() {
   const content = await fetchMarkdownContent(
     "AkaHanshan",
     "AkaHanshan",
-    "README.md",
+    "README.md"
   );
   console.log("content:", content);
 
