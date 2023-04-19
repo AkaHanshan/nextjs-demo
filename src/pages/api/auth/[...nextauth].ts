@@ -15,6 +15,8 @@ export default NextAuth({
     sessionToken: {
       name: `${useSecureCookies ? "__Secure-" : ""}next-auth.session-token`,
       options: {
+        httpOnly: false,
+        sameSite: "lax",
         path: "/",
         domain: ".next-auth-example.vercel.app",
         secure: useSecureCookies,
