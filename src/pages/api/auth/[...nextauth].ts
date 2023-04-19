@@ -1,13 +1,14 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import NextAuth from "next-auth";
+import GitHubProvider from "next-auth/providers/github";
 
-export const authOptions: NextAuthOptions = {
+const useSecureCookies = !!process.env.VERCEL_URL;
+
+export default NextAuth({
   providers: [
-    GithubProvider({
+    GitHubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
-};
-
-export default NextAuth(authOptions);
+  secret: process.env.SECRET as string,
+});
