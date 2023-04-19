@@ -1,6 +1,8 @@
+interface BlogProps {
+  content: string;
+}
 
-
-function Blog({ content }) {
+function Blog(context: BlogProps) {
 
   return (
     <main className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -15,7 +17,7 @@ function Blog({ content }) {
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 dark:text-gray-400">
                 <p className="text-lg leading-7 font-semibold text-gray-900 dark:text-gray-100">
-                  {content}
+                  {context.content}
                 </p>
               </div>
             </div>
