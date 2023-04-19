@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import ThemeSwitchButton from './themeSwitchButton';
 import Image from 'next/image';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 export function Navbar() {
+  const { data, status } = useSession();
   return (
     <nav className="bg-white dark:bg-gray-900">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -32,7 +34,29 @@ export function Navbar() {
             </Link>
           </div>
           <div className="flex items-center">
-            <ThemeSwitchButton />
+
+            <div className="ml-4 flex items-center md:ml-6">
+              <ThemeSwitchButton />
+            </div>
+            <div className="ml-4 flex items-center md:ml-6 dark:invert">
+              <Image
+                src="github.svg"
+                alt="github"
+                width={28}
+                height={28}
+                onClick={() => signIn('github')}
+              />
+            </div>
+            {status === 'authenticated' && (
+              <div className="ml-4 flex items-center md:ml-6 dark:invert">
+                <Image
+                  src={data?.user?.image || ''}
+                  alt="avatar"
+                  width={28}
+                  height={28}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
