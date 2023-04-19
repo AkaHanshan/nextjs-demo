@@ -52,6 +52,8 @@ export function Navbar() {
                 <Image
                   src={data?.user?.image || ''}
                   alt="avatar"
+                  width={28}
+                  height={28}
                 />
               </div>
             )}
