@@ -38,7 +38,7 @@ export function Navbar() {
             <div className="ml-4 flex items-center md:ml-6">
               <ThemeSwitchButton />
             </div>
-            <div className="ml-4 flex items-center md:ml-6 dark:invert">
+            <div className="ml-4 flex items-center md:ml-6 dark:invert cursor-pointer">
               <Image
                 src="github.svg"
                 alt="github"
@@ -52,8 +52,6 @@ export function Navbar() {
                 <Image
                   src={data?.user?.image || ''}
                   alt="avatar"
-                  width={28}
-                  height={28}
                 />
               </div>
             )}
