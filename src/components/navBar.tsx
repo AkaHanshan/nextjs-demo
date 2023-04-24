@@ -38,23 +38,34 @@ export function Navbar() {
             <div className="ml-4 flex items-center md:ml-6">
               <ThemeSwitchButton />
             </div>
-            <div className="ml-4 flex items-center md:ml-6 dark:invert cursor-pointer">
-              <Image
-                src="github.svg"
-                alt="github"
-                width={28}
-                height={28}
-                onClick={() => signIn('github')}
-              />
-            </div>
+            {status === 'unauthenticated' && (
+              <div className="ml-4 flex items-center md:ml-6 dark:invert cursor-pointer">
+                <Image
+                  src="github.svg"
+                  alt="github"
+                  width={28}
+                  height={28}
+                  onClick={() => signIn('github')}
+                />
+              </div>
+            )}
             {status === 'authenticated' && (
-              <div className="ml-4 flex items-center md:ml-6 dark:invert">
+              <div className="ml-4 flex items-center md:ml-6">
                 <Image
                   src={data?.user?.image || ''}
                   alt="avatar"
                   width={28}
                   height={28}
                 />
+                <div className="ml-4 flex items-center md:ml-6">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700"
+                    onClick={() => signOut()}
+                  >
+                    Sign out
+                  </button>
+                </div>
               </div>
             )}
           </div>
