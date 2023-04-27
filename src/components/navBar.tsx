@@ -23,8 +23,8 @@ export function Navbar() {
             <Link href="/blog">
               <span className="px-3 py-2 text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400">Blog</span>
             </Link>
-            <Link href="/tags">
-              <span className="px-3 py-2 text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400">Tags</span>
+            <Link href="/protected">
+              <span className="px-3 py-2 text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400">Protected</span>
             </Link>
             <Link href="/project">
               <span className="px-3 py-2 text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400">Project</span>
